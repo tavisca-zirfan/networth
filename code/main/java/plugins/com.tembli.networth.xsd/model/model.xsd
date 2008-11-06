@@ -257,4 +257,22 @@
 			</xsd:simpleType>
 		</xsd:attribute>
 	</xsd:complexType>
+
+	<xsd:element name="NetWorth" type="netWorth"></xsd:element>
+	
+
+    <xsd:complexType name="netWorth">
+    	<xsd:sequence>
+    		<xsd:element name="account" type="account" minOccurs="1"
+    			maxOccurs="unbounded">
+    		</xsd:element>
+    		<xsd:element name="user" type="user"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="user">
+    	<xsd:attribute name="id" type="xsd:string" use="required"></xsd:attribute>
+    	<xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
+    	<xsd:attribute name="password" type="xsd:string" use="required"></xsd:attribute>
+    </xsd:complexType>
 </xsd:schema>
