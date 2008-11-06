@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:this="http:///com.tembli.networth/model/model.xsd"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http:///com.tembli.networth/model/model.xsd">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http:///com.tembli.networth/model/model.xsd" xmlns="http:///com.tembli.networth/model/model.xsd">
 	<xsd:complexType name="account">
 		<xsd:sequence>
-			<xsd:element name="balance" type="this:money" minOccurs="1"
+			<xsd:element name="balance" type="money" minOccurs="1"
 				maxOccurs="1">
 			</xsd:element>
-			<xsd:element name="account" type="this:account"
+			<xsd:element name="account" type="account"
 				minOccurs="0" maxOccurs="unbounded">
 			</xsd:element>
 		</xsd:sequence>
 		<xsd:attribute name="name" use="required"
-			type="this:stringDisplay">
+			type="stringDisplay">
 		</xsd:attribute>
 
-		<xsd:attribute name="type" type="this:accountType" use="required"></xsd:attribute>
+		<xsd:attribute name="type" type="accountType" use="required"></xsd:attribute>
 	</xsd:complexType>
 
 
@@ -27,7 +26,7 @@
     <xsd:complexType name="money">
   		<xsd:simpleContent>
     		<xsd:extension base="xsd:decimal">
-      			<xsd:attribute name="currency" type="this:currencyType" use="required"/>
+      			<xsd:attribute name="currency" type="currencyType" use="required"/>
     		</xsd:extension>
   		</xsd:simpleContent>
 	</xsd:complexType>
@@ -241,13 +240,13 @@
 
 	<xsd:complexType name="transaction">
 		<xsd:sequence>
-			<xsd:element name="source" type="this:account" minOccurs="1"
+			<xsd:element name="source" type="account" minOccurs="1"
 				maxOccurs="1">
 			</xsd:element>
-			<xsd:element name="destination" type="this:account"
+			<xsd:element name="destination" type="account"
 				minOccurs="1" maxOccurs="1">
 			</xsd:element>
-			<xsd:element name="amount" type="this:money" minOccurs="1" maxOccurs="1"></xsd:element>
+			<xsd:element name="amount" type="money" minOccurs="1" maxOccurs="1"></xsd:element>
 		</xsd:sequence>
 		<xsd:attribute name="date" type="xsd:date" use="required"></xsd:attribute>
 		<xsd:attribute name="description">
